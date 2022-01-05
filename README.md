@@ -62,7 +62,8 @@ $COMMAND $BUCKET --name $DIR/$x --file $x
 done
 echo "Copia finalizada com sucesso!"
 
-
+--COPIA ARQUIVO ESPECÍFICO PARA BACKUT ESPECÍFICO EM BACKUGROUND
+nohup oci os object put -bn bkp-db-inbrands --name db1213/bkp-XXX-OCI-15-12-2021.tar.bz2.gpg --file bkp-XXX-OCI-15-12-2021.tar.bz2.gpg &
 
 -- A LISTA SERA ATUALIZADA
 
