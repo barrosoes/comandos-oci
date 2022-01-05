@@ -47,5 +47,22 @@ oci db node stop --db-node-id ocid1.dbnode.oc1.sa-saopaulo-1.abtxeljr52un3ssc...
 --START NODE BANCO ESPECIFICO
 oci db node start --db-node-id ocid1.dbnode.oc1.sa-saopaulo-1.abtxeljr52un3ssc...
 
+
+
+copy_rman_obj.sh
+#!/bin/bash
+#Execução de cópia de arquivos para bucket bkp-db-xxx em Object Storage
+#Anderson Barroso
+COMMAND="oci os object put -bn"
+BUCKET="bkp-db-xxx"
+DIR="ocdb"
+for x in bkp*; do  
+ls -l $x |awk '{print $9}'; 
+$COMMAND $BUCKET --name $DIR/$x --file $x
+done
+echo "Copia finalizada com sucesso!"
+
+
+
 -- A LISTA SERA ATUALIZADA
 
